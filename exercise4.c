@@ -43,13 +43,17 @@ int main(int argc, char** argv)
   }
 
   perm = generate_perm(tamano);
+  for(j = 0; j < tamano; j++) {
+    printf("%d \t", perm[j]);
+  }
+  printf("\n");
 
   if (perm == NULL) { /* error */
     printf("Error: Out of memory\n");
     exit(-1);
   }
 
-  ret =BubbleSort(perm, 0, tamano-1);
+  ret =SelectSort(perm, 0, tamano-1);
 
   if (ret == ERR) {
     printf("Error: Error in BubbleSort\n");

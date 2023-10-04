@@ -9,43 +9,44 @@
  *
  */
 
-
 #include "sorting.h"
+
 
 /***************************************************/
 /* Function: SelectSort    Date:                   */
 /* Your comment                                    */
 /***************************************************/
-int SelectSort(int* array, int ip, int iu)
+int SelectSort(int *array, int ip, int iu)
 {
   /* Your code */
-  int i, j, minind, aux, n;
+  int i, j, minind;
 
-  n = length(array);
-
-  for ( i=0; i<n; i++){
-      minind = 0;
-
-    for (j=i; j<n;j++){
-      /*llama a min*/
-        if (array[i]>array[j]) {
-        minind=j;
-        }
-          
-    }
-    aux = array[i];
-    array[i] = array[minind];
-    array[minind] = aux;
+  for (i = ip; i < iu + 1; i++)
+  {
+    minind = min(array, i, iu + 1);
+    swap(&array[i], &array[minind]);
   }
+  return i + 1;
 }
 
-int SelectSortInv(int* array, int ip, int iu)
+int SelectSortInv(int *array, int ip, int iu)
 {
   /* your code */
 }
 
-int min(int* array, int ip, int iu)
+int min(int *array, int ip, int iu)
 {
   /* your code */
+  int i, min, minind;
+  min = array[ip];
+  minind = ip;
+  for (i = ip; i < iu; i++)
+  {
+    if (min > array[i])
+    {
+      min = array[i];
+      minind = i;
+    }
+  }
+  return minind;
 }
-

@@ -14,6 +14,15 @@
 #include "time.h"
 #include "stdlib.h"
 
+
+void swap(int *a, int *b)
+{
+  int aux;
+  aux = *a;
+  *a = *b;
+  *b = aux;
+}
+
 /***************************************************/
 /* Function: random_num Date:                      */
 /* Authors:                                        */
@@ -50,7 +59,6 @@ int* generate_perm(int N)
   int *perm;
   int i ;
   int ran;
-  int aux;
 
   perm = (int*) malloc(N*sizeof(int));
 
@@ -60,9 +68,7 @@ int* generate_perm(int N)
 
   for(i=0; i<N; i++) {
     ran = random_num(i, N-1);
-    aux = perm[i];
-    perm[i] = perm[ran];
-    perm[ran] = aux;
+    swap(&perm[i], &perm[ran]);
   }
 
   return perm;

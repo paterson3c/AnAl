@@ -1,4 +1,4 @@
-#-----------------------
+#--------------------aisi---
 # IMPORTANTE: The values of the parameters for exercise?_test have to be conveniently adjusted.
 # It is assumed that the name of the source files is exercise1.c, exercise2.c,...,exercise.h
 #-----------------------
@@ -55,7 +55,7 @@ exercise3_test:
 
 exercise4_test:
 	@echo Running exercise4
-	@./exercise4 -size 1
+	@./exercise4 -size 100
 
 exercise5_test:
 	@echo Running exercise5
