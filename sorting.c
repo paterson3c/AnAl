@@ -19,12 +19,12 @@
 int SelectSort(int *array, int ip, int iu)
 {
   /* Your code */
-  int i, j, minind;
+  int i, j, minind, cont ;
 
   for (i = ip; i < iu + 1; i++)
   {
     minind = min(array, i, iu + 1);
-    swap(&array[i], &array[minind]);
+    swap(&array[i], &array[minind], *cont);
   }
   return i + 1;
 }
@@ -34,7 +34,7 @@ int SelectSortInv(int *array, int ip, int iu)
   /* your code */
 }
 
-int min(int *array, int ip, int iu)
+int min(int *array, int ip, int iu,int* cont )
 {
   /* your code */
   int i, min, minind;
@@ -46,6 +46,7 @@ int min(int *array, int ip, int iu)
     {
       min = array[i];
       minind = i;
+      cont ++;
     }
   }
   return minind;
