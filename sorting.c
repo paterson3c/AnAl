@@ -9,6 +9,7 @@
  *
  */
 
+#include <stdio.h>
 #include "sorting.h"
 
 
@@ -19,14 +20,15 @@
 int SelectSort(int *array, int ip, int iu)
 {
   /* Your code */
-  int i, j, minind, cont ;
+  int i, minind, cont = 0;
 
   for (i = ip; i < iu + 1; i++)
   {
     minind = min(array, i, iu + 1);
-    swap(&array[i], &array[minind], *cont);
+    cont += iu - i + 1;
+    swap(&array[i], &array[minind]);
   }
-  return i + 1;
+  return cont;
 }
 
 int SelectSortInv(int *array, int ip, int iu)
@@ -34,7 +36,7 @@ int SelectSortInv(int *array, int ip, int iu)
   /* your code */
 }
 
-int min(int *array, int ip, int iu,int* cont )
+int min(int *array, int ip, int iu)
 {
   /* your code */
   int i, min, minind;
@@ -46,7 +48,6 @@ int min(int *array, int ip, int iu,int* cont )
     {
       min = array[i];
       minind = i;
-      cont ++;
     }
   }
   return minind;
