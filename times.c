@@ -80,14 +80,16 @@ short generate_sorting_times(pfunc_sort method, char* file, int num_min, int num
   /* Your code */
   int i, j;
   PTIME_AA time;
-  short st;
+  short st = OK;
 
-  time = (PTIME_AA) malloc((((num_max - num_min) / incr) + 1) * sizeof(TIME_AA));
+  time = (PTIME_AA) calloc((((num_max - num_min) / incr) + 1), sizeof(TIME_AA));
   if(!time)
     return ERR;
 
   for(i = num_min, j = 0; i < num_max && st != ERR; i += incr, j++) {
     st = average_sorting_time(method, n_perms, i, &time[j]);
+    if(st == ERR)
+      break;
   }
 
   if (st == ERR) {
