@@ -25,7 +25,7 @@ void swap(int *a, int *b)
 
 /***************************************************/
 /* Function: random_num Date:                      */
-/* Authors:                                        */
+/* Authors: Miguel Paterson & María Silva          */
 /*                                                 */
 /* Rutine that generates a random number           */
 /* between two given numbers                       */
@@ -43,7 +43,7 @@ int random_num(int inf, int sup)
 
 /***************************************************/
 /* Function: generate_perm Date:                   */
-/* Authors:                                        */
+/* Authors: Miguel Paterson & María Silva          */
 /*                                                 */
 /* Rutine that generates a random permutation      */
 /*                                                 */
@@ -76,7 +76,7 @@ int* generate_perm(int N)
 
 /***************************************************/
 /* Function: generate_permutations Date:           */
-/* Authors:                                        */
+/* Authors: Miguel Paterson & María Silva          */
 /*                                                 */
 /* Function that generates n_perms random          */
 /* permutations with N elements                    */

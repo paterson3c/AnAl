@@ -15,12 +15,26 @@
 
 /***************************************************/
 /* Function: average_sorting_time Date:            */
+/* Authors: Miguel Paterson & María Silva          */
 /*                                                 */
-/* Your documentation                              */
+/* Routine that computes and returns the average   */
+/* time required by the provided sorting method    */
+/* for sorting a given number of permutations      */
+/* of a given length. Also computes the average,   */
+/* minimum, and maximum number of basic operations */
+/* used by the sorting method.                     */
+/*                                                 */
+/* Input:                                          */
+/* pfunc_sort metodo: Pointer to the sorting method*/
+/* int n_perms: Number of permutations             */
+/* int N: Length of each permutation               */
+/* PTIME_AA ptime: Struct to store results         */
+/*                                                 */
+/* Output:                                         */
+/* short: OK if all goes well, ERR otherwise       */
 /***************************************************/
 short average_sorting_time(pfunc_sort metodo, int n_perms,int N,  PTIME_AA ptime)
 {
-/* Your code */
   int i, j, count = 0, **perms;
   clock_t start, end, total;
   int st;
@@ -72,12 +86,27 @@ short average_sorting_time(pfunc_sort metodo, int n_perms,int N,  PTIME_AA ptime
 
 /***************************************************/
 /* Function: generate_sorting_times Date:          */
+/* Authors: Miguel Paterson & María Silva          */
 /*                                                 */
-/* Your documentation                              */
+/* Routine that generates a table of average       */
+/* sorting times and basic operations for the      */
+/* provided sorting method, over a range of        */
+/* permutation lengths. The results are saved      */
+/* to a file.                                      */
+/*                                                 */
+/* Input:                                          */
+/* pfunc_sort method: Pointer to the sorting method*/
+/* char* file: Name of the output file             */
+/* int num_min: Minimum permutation length         */
+/* int num_max: Maximum permutation length         */
+/* int incr: Increment in permutation length       */
+/* int n_perms: Number of permutations             */
+/*                                                 */
+/* Output:                                         */
+/* short: OK if all goes well, ERR otherwise       */
 /***************************************************/
 short generate_sorting_times(pfunc_sort method, char* file, int num_min, int num_max,  int incr, int n_perms)
 {
-  /* Your code */
   int i, j;
   PTIME_AA time;
   short st = OK;
@@ -105,12 +134,21 @@ short generate_sorting_times(pfunc_sort method, char* file, int num_min, int num
 
 /***************************************************/
 /* Function: save_time_table Date:                 */
+/* Authors: Miguel Paterson & María Silva          */
 /*                                                 */
-/* Your documentation                              */
+/* Routine that saves the table of average sorting */
+/* times and basic operations to a file.           */
+/*                                                 */
+/* Input:                                          */
+/* char* file: Name of the output file             */
+/* PTIME_AA ptime: Array of results                */
+/* int n_times: Number of entries in ptime         */
+/*                                                 */
+/* Output:                                         */
+/* short: OK if all goes well, ERR otherwise       */
 /***************************************************/
 short save_time_table(char* file, PTIME_AA ptime, int n_times)
 {
-  /* your code */
   int i;
   FILE *f;
 
@@ -119,7 +157,7 @@ short save_time_table(char* file, PTIME_AA ptime, int n_times)
     return ERR;
 
   for(i = 0; i< n_times; i++) {
-    fprintf(f, "Size: %d, Time: %f, Avg OB: %f, Min OB: %d, Max OB: %d\n", ptime[i].N, ptime[i].time, ptime[i].average_ob, ptime[i].min_ob, ptime[i].max_ob);
+    fprintf(f, "%d %f %f %d %d\n", ptime[i].N, ptime[i].time, ptime[i].average_ob, ptime[i].min_ob, ptime[i].max_ob);
   }
 
   fclose(f);
